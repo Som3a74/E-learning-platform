@@ -1,0 +1,24 @@
+.Quis_li{
+    border: 2px solid #A42FC1
+}
+.Quis_li:hover{
+    color: black;
+    background-color: #d9d5dd;
+}
+.selected_answer{
+    color: white;
+    background-color: #A42FC1;
+}
+
+section div .buttonNext:disabled{
+    background-color: #a69ab1;
+    cursor: no-drop;
+}
+
+
+
+@media(max-width : 991px) {
+    .displaysm {
+        display: none;
+    }
+}

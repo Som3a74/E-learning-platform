@@ -1,0 +1,65 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  /* margin: 0px;
+  padding: 0px; */
+  box-sizing: border-box !important;
+}
+
+body {
+  /* font-family: 'Poppins', sans-serif ;
+  font-family: 'DM Sans', sans-serif ;
+  font-family: Poppins,sans-serif; */
+  font-family: 'Roboto', sans-serif;
+  /* min-height: 100vh; */
+  overflow-x: hidden;
+  position: relative;
+}
+
+:root {
+  --mainbackground: linear-gradient(90deg, rgb(247 81 134) 29%, rgb(255 0 152) 85%);
+  --secondbackground: #4D2C5E;
+  --thirdbackground: #FF7426;
+  /* --mainColor : #262626 ;
+  --ulcolor :  #6b7280 ;
+  --smborder : 1px solid #e5e7eb; ;  */
+}
+
+.bgMain {
+  /* background: linear-gradient(to top, #ff9a9e 0%, #e39dcd 99%, #d487bc 100%); */
+  /* background: linear-gradient(90deg, rgba(204,43,94,1) 29%, rgba(222,21,141,1) 85%); */
+  /* background: linear-gradient(90deg, rgb(134, 40, 97)0%, rgb(87, 15, 58) 98%); */
+  /* background: var(--mainbackground) */
+  background-color:  #4d2c5e !important;
+}
+
+.secondbackground {
+  background-color: var(--secondbackground);
+}
+
+.thirdColor {
+  color: var(--thirdbackground);
+}
+
+.bgThirdColor {
+  background-color: var(--thirdbackground) !important;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+img {
+  /* max-width: 100%; */
+  height: auto;
+}
+
+input {
+  font-family: 'Helvetica', FontAwesome, sans-serif;
+}
+
+/* .height_Main{
+  height: calc(100vh - 440.188px);
+} */

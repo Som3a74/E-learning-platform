@@ -1,0 +1,153 @@
+.bodyChat {
+    width: 100%;
+    background-color: rgba(77, 56, 82, 0.075);
+  }
+  
+  .AppChat {
+    text-align: center;
+    max-width: 828px;
+    margin: 0 auto;
+  }
+  
+  .AppChat header {
+    background-color: #7354;
+    height: 10vh;
+    min-height: 50px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    max-width: 828px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .AppChat section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .mainChat {
+    padding: 10px;
+    height: 80vh;
+    margin: 10vh 0 10vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mainChat::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  .mainChat::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  .mainChat::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  
+  .formChat {
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(24, 23, 23);
+    width: 100%;
+    max-width: 828px;
+    display: flex;
+    font-size: 1.5rem;
+  }
+  
+  .formChat button {
+    width: 20%;
+    background-color: #c08cce;
+  }
+  
+  .inputChat {
+    line-height: 1.5;
+    width: 100%;
+    font-size: 1.5rem;
+    background: #fff;
+    color: #212529;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+  }
+  
+  .buttonChat {
+    background-color: #ad7eb9;
+    /* Green */
+    border: none;
+    color: #f9f4fa;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.25rem;
+  }
+  
+  .buttonChat:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .sign-in {
+    color: #f9f4fa;
+    background: #ad7eb9;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .ulChat,
+  .liChat {
+    text-align: left;
+    list-style: none;
+  }
+  
+  .pChat {
+    max-width: 500px;
+    margin-bottom: 12px;
+    line-height: 24px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  
+  .message {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sent {
+    flex-direction: row-reverse;
+  }
+  
+  .sent p {
+    color: white;
+    background: #c08cce;
+    align-self: flex-end;
+  }
+  
+  .received p {
+    background: #e7e7e7;
+    color: #515151;
+  }
+  
+  .imgChat {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+  }
+  

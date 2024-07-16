@@ -1,0 +1,56 @@
+.hadder{
+    background-image: url('./../../Img/Home/bgHadder.png');
+
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #FDF8EE;
+}
+
+/* //////////////////       OurCourse        /////////////////////////////////////////// */
+
+.OurCourse__SpacialHead{
+    color: #ebeced;
+    font-size:90px;
+    text-align: center ;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+    transition-duration: 200ms;
+}
+.OurCourse__headText{
+    margin: -35px 0 0;
+    font-size:  1.1rem;
+    text-align: center;
+    color: #797979; 
+    transition-duration: 400ms;
+    font-weight: 600;
+}
+.disableCard{
+    filter: grayscale(100%); 
+    pointer-events: none;
+}
+
+/* //////////////////       displaysm        /////////////////////////////////////////// */
+
+@media(max-width : 991px) {
+    .displaysm {
+        display: none;
+    }
+}
+
+/* //////////////////       Our_Teachers        /////////////////////////////////////////// */
+
+.Our_Teachers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px 20px;
+    margin-top: 70px;
+}
+
+
+

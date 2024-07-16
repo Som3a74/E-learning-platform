@@ -1,0 +1,25 @@
+.up_down_img {
+    position: absolute;
+    filter: drop-shadow(8px 8px 8px #FaE);
+    animation: formAnimation 5s linear infinite;
+}
+.vh_70_login{
+    min-height: 70vh;
+}
+@keyframes formAnimation {
+
+    0%,
+    100% {
+        top: 0;
+    }
+
+    50% {
+        top: -30px;
+    }
+}
+
+@media(max-width : 991px) {
+    .displaysm {
+        display: none;
+    }
+}

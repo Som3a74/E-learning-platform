@@ -1,0 +1,80 @@
+.ProfileLeft__box {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 30px 30px;
+    margin: 50px 0px;
+    border: none;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+}
+
+.profile__img {
+    width: 127px;
+    height: 121px;
+    border: 6px solid rgba(77, 44, 94, .2);
+    border-radius: 50%;
+}
+
+
+.ProfileLeft_circular_progress {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProfileLeft_circular_progress::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.ProfileLeft_progress_value {
+    position: relative;
+    color: rgb(255, 255, 255);
+    margin: 0px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+.ProfileLeft_Activites{
+    background-color: #AEEDE2;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* //////////////////// ProfileRight   ///////////////////////////// */
+
+.ProfileRight_Percentage{
+   border-radius: 10px; 
+   padding: 17px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 80px;
+}
+
+
+@media(max-width : 430px) {
+    .ProfileLeft__box {
+        padding: 0px;
+    }
+}
+
+
+
+
+
+

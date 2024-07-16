@@ -1,0 +1,229 @@
+.containrBody {
+  min-width: 600px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #1f1c14;
+  background-color: #f8f9fa;
+  padding: 40px 0;
+}
+
+.gridMan {
+  display: grid;
+  column-gap: 48px;
+  row-gap: 64px;
+}
+.grid2Cols {
+  grid-template-columns: 1fr 2fr;
+}
+.gridCenterV {
+  align-items: center;
+}
+
+/**************************
+ Details Section 
+ *************************/
+.parentContainer {
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 32px;
+}
+.detailsCourse {
+  margin-bottom: 48px;
+}
+.headingPrimary {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.courseImg {
+  height: 350px;
+  width: 524px;
+}
+
+.courseTextBox {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.courseTextBox h2 {
+  font-size: 20px;
+}
+.courseTextBox p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.lessonNumber {
+  display: flex;
+}
+.viewDetails {
+  color: #9b51e0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+.arrowDown {
+  width: 16px;
+  height: 16px;
+}
+.teacherName {
+  color: #9b51e0;
+}
+.rating {
+  display: flex;
+  align-items: center;
+}
+.starIcon {
+  width: 20px;
+  height: 20px;
+  fill: #ffc107;
+  stroke: #ffc107;
+  color: #ffc107;
+}
+
+.btnMan {
+  align-self: flex-start;
+  color: #fff;
+  background-color: #4d2c5e;
+  font-size: 16px;
+  text-decoration: none;
+  letter-spacing: 1.2px;
+  border: none;
+  padding: 16px 48px;
+  border-radius: 11px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background-color 0.4s;
+}
+.btnMan:hover {
+  background-color: #452855;
+  color: #edeaef;
+}
+
+/**************************
+ Description Section 
+ *************************/
+.cardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.similar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.more {
+  font-size: 18px;
+}
+.courseDescription {
+  margin-bottom: 96px;
+}
+.headingTertiary {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+.courseDescriptionBox p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.courseProperties {
+  list-style: none;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.courseProperties li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkboxIcon {
+  background-color: #fff;
+  color: #918cff;
+}
+
+.similarCards {
+  max-width: 1200px;
+  margin: 0 auto 240px auto;
+
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  gap: 32px;
+}
+
+.similarCard {
+  width: 400px;
+  line-height: 1.6;
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 11px;
+  box-shadow: 0 0 48px rgba(0, 0, 0, 0.075);
+
+  display: grid;
+  grid-template-columns: 0.8fr 2fr;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.similarCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.06);
+}
+.cardTitle {
+  font-size: 16px;
+}
+.cardDescription {
+  font-size: 12px;
+}
+.freeOffer {
+  font-size: 16px;
+  color: #f15911;
+  font-weight: 700;
+}
+
+/**************************/
+/* RESPONSIVE */
+/**************************/
+/**************************/
+/* BELOW 1200px (Landscape Tablets) */
+/**************************/
+
+@media (max-width: 75em) {
+  .similarCards {
+    max-width: 1200px;
+    margin: 0 auto 240px auto;
+    padding: 10px 40px;
+
+    display: grid;
+    grid-template-columns: 0.25fr 0.4fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 60em) {
+  .gridMan {
+    display: grid;
+    column-gap: 32px;
+    row-gap: 48px;
+  }
+  .grid2Cols {
+    grid-template-columns: 1fr;
+  }
+  .similarCards {
+    padding: 10px 40px;
+  }
+}
+
+@media (max-width: 57em) {
+  .similarCards {
+    grid-template-columns: 1fr;
+  }
+}
