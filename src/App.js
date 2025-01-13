@@ -28,15 +28,6 @@ import CourseDetails from "./Components/CourseDetails/CourseDetails";
 import CreateQuiz from './Components/CreateQuiz/CreateQuiz';
 
 export default function App() {
-  // const { userToken } = useSelector((state) => state.ApisliceToken);
-  // console.log(userToken)
-  // // jwtDecode(userToken)
-  // if (userToken) {
-  //   const x = jwtDecode(`${userToken}`)
-  //   console.log(x["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]);
-  // }
-
-
 
   const { Lang } = useSelector((state) => state.ApiSliceTransition);
   const { t, i18n } = useTranslation();

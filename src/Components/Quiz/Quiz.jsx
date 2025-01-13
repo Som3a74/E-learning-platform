@@ -23,7 +23,7 @@ export default function Quiz() {
   const getCourse = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`https://selpapi20240618171141.azurewebsites.net/SELP/V1/Quiz/List`,
+      const { data } = await axios.get(`${process.env.REACT_APP_END_POINT_API}/SELP/V1/Quiz/List`,
         {
           headers: { Authorization: `Bearer ${userToken}` }
         }

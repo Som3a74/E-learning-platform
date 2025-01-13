@@ -34,7 +34,7 @@ function ChatCommunity() {
     <main className='bodyChat'>
       <div className="AppChat">
         <header>
-          <h3> <Link className='text-decoration-none text-black ms-2' to={'/'}>Back</Link></h3>
+          <h3> <Link className='text-decoration-none text-black ms-2' to={'/'}> {'<<'}Back   </Link></h3>
           <SignOut />
         </header>
 

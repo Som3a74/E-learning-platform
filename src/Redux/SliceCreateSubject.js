@@ -6,7 +6,7 @@ export const getCreateSubject = createAsyncThunk('getCreateSubject/getCreateSubj
     try {
         const { userToken } = useSelector((state) => state.ApisliceToken);
         console.log(userToken)
-        const { data } = await axios.post(`https://selpapi20240618171141.azurewebsites.net/SELP/V1/Subject/AddSubject`, values ,
+        const { data } = await axios.post(`${process.env.REACT_APP_END_POINT_API}/SELP/V1/Subject/AddSubject`, values ,
             {
                 headers: { Authorization: `Bearer ${userToken}` }
             }

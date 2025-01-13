@@ -29,7 +29,7 @@ export default function CreateQuiz() {
         console.log(values)
         setLoading(true);
         try {
-            const { data } = await axios.post(`https://selpapi20240618171141.azurewebsites.net/SELP/V1/Quiz/Create`, values,
+            const { data } = await axios.post(`${process.env.REACT_APP_END_POINT_API}/SELP/V1/Quiz/Create`, values,
                 {
                     headers: { Authorization: `Bearer ${userToken}` }
                 }

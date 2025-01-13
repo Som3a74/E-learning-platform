@@ -35,7 +35,7 @@ export default function ResetPassword() {
         }
 
         try {
-            const { data } = await axios.get(`https://selpapi20240618171141.azurewebsites.net/SELP/V1/User/SendResetPassword?Email=${email}`)
+            const { data } = await axios.get(`${process.env.REACT_APP_END_POINT_API}/SELP/V1/User/SendResetPassword?Email=${email}`)
             if (data.message === 'Added Successfully') {
                 navigate('/ConfirmResetPass')
             }

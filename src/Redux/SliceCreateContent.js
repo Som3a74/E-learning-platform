@@ -10,7 +10,7 @@ export const getCreateContent = createAsyncThunk('getCreateContent/getCreateCont
     });
 
     try{
-        const {data} = await axios.post(`https://selpapi20240618171141.azurewebsites.net/Content/SELP/V1/Content/Create`,formData)
+        const {data} = await axios.post(`${process.env.REACT_APP_END_POINT_API}/Content/SELP/V1/Content/Create`,formData)
         return data
     }catch (err){
         console.log(err)
@@ -33,8 +33,6 @@ const SliceCreateContent = createSlice({
         builder.addCase(getCreateContent.pending , (state , action)=>{
             console.log('pending');
             state.loading_CreateContent = true ;
-            state.data_CreateContent = null ;
-            state.errors_CreateContent = null ;
         })
         .addCase(getCreateContent.fulfilled , (state , action)=>{
             console.log('fulfilled');
@@ -42,10 +40,12 @@ const SliceCreateContent = createSlice({
             state.loading_CreateContent = false ;
             state.data_CreateContent    = action.payload ;
             state.errors_CreateContent  = null ;
-        })
+                  state.data_CreateContent = null ;
+            state.errors_CreateContent = null ;
+  })
         .addCase(getCreateContent.rejected , (state , action)=>{
             console.log('rejected');
-            console.log(action.payload)
+            // console.log(action.payload)
             state.loading_CreateContent = false ;
             state.data_CreateContent    = null ;
             state.errors_CreateContent  = action.payload  ;

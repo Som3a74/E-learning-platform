@@ -32,7 +32,7 @@ export default function TestBank() {
         <img
           className={style.upgradeIllustration}
           src={require("../../Img/Testbank/upgrade_illustration.png")}
-          alt=""
+          alt="upgrade illustration"
         />
       </nav>
       <div className={style.questions}>
@@ -40,9 +40,9 @@ export default function TestBank() {
           <input
             type="text"
             className={style.searchFeild}
-            placeholder="search a questions"
+            placeholder="Search a question"
           />
-          <select name="cars" id="cars">
+          <select name="chapter" id="chapter">
             <option value="ch1">CH 1</option>
             <option value="ch2">CH 2</option>
             <option value="ch3">CH 3</option>
@@ -58,99 +58,56 @@ export default function TestBank() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>
-                  What is the correct IUPAC name of the compound (3 – ethyl – 2
-                  – butanol)?
-                  <br />
-                  A. 2 – ethyl – 3 – butanol
-                  <br />
-                  B. 2 – ethyl – 2 – butanol
-                  <br />
-                  C. 3 – methyl – 2 – pentanol
-                  <br />
-                  D. 2 – methyl – 3 – pentanol
-                </td>
-                <td className={style.answer}>B</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  Alkaline hydrolysis of 1,2-dichloro-benzene gives ………
-                  <br />
-                  A. phenol
-                  <br />
-                  B. catechol
-                  <br />
-                  C. pyrogalloll
-                  <br />
-                  D. toluene
-                </td>
-                <td className={style.answer}>A</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  All the following are considered as isomers for secondary
-                  butyl alcohol except ………
-                  <br />
-                  A. 2 – butanol
-                  <br />
-                  B. isopropyl alcohol
-                  <br />
-                  C. 2 – methyl – 2 – propanol
-                  <br />
-                  D. tertiary butyl alcohol
-                </td>
-                <td className={style.answer}>C</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>
-                  We can obtain an explosive substance from benzene through the
-                  following steps ………
-                  <br />
-                  A. alkaline hydrolysis / chlorination / nitration
-                  <br />
-                  B. nitration / alkaline hydrolysis / chlorination
-                  <br />
-                  C. chlorination / alkaline hydrolysis / alkylation
-                </td>
-                <td className={style.answer}>B</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>
-                  What is the chemical name of the produced ester from a
-                  reaction of dibasic acid with dihydric alcohol?....
-                  <br />
-                  A. oil
-                  <br />
-                  B. fat
-                  <br />
-                  C. dacron
-                  <br />
-                  D. asprin
-                </td>
-                <td className={style.answer}>A</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>
-                  What is the chemical name of the produced ester from a
-                  reaction of dibasic acid with dihydric alcohol?....
-                  <br />
-                  A. oil
-                  <br />
-                  B. fat
-                  <br />
-                  C. dacron
-                  <br />
-                  D. asprin
-                </td>
-                <td className={style.answer}>A</td>
-              </tr>
+              {[
+                {
+                  id: 1,
+                  question: "What is the correct IUPAC name of the compound (3 – ethyl – 2 – butanol)?",
+                  options: ["A. 2 – ethyl – 3 – butanol", "B. 2 – ethyl – 2 – butanol", "C. 3 – methyl – 2 – pentanol", "D. 2 – methyl – 3 – pentanol"],
+                  answer: "B",
+                },
+                {
+                  id: 2,
+                  question: "Alkaline hydrolysis of 1,2-dichloro-benzene gives ………",
+                  options: ["A. phenol", "B. catechol", "C. pyrogallol", "D. toluene"],
+                  answer: "A",
+                },
+                {
+                  id: 3,
+                  question: "All the following are considered as isomers for secondary butyl alcohol except ………",
+                  options: ["A. 2 – butanol", "B. isopropyl alcohol", "C. 2 – methyl – 2 – propanol", "D. tertiary butyl alcohol"],
+                  answer: "C",
+                },
+                {
+                  id: 4,
+                  question: "We can obtain an explosive substance from benzene through the following steps ………",
+                  options: ["A. alkaline hydrolysis / chlorination / nitration", "B. nitration / alkaline hydrolysis / chlorination", "C. chlorination / alkaline hydrolysis / alkylation"],
+                  answer: "B",
+                },
+                {
+                  id: 5,
+                  question: "What is the chemical name of the produced ester from a reaction of dibasic acid with dihydric alcohol?....",
+                  options: ["A. oil", "B. fat", "C. dacron", "D. asprin"],
+                  answer: "A",
+                },
+                {
+                  id: 6,
+                  question: "What is the chemical name of the produced ester from a reaction of dibasic acid with dihydric alcohol?....",
+                  options: ["A. oil", "B. fat", "C. dacron", "D. asprin"],
+                  answer: "A",
+                },
+              ].map((item) => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>
+                    {item.question}
+                    <br />
+                    {item.options.map((option, index) => (
+                      <div key={index}>{option}</div>
+                    ))}
+                  </td>
+                  <td className={style.answer}>{item.answer}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </main>

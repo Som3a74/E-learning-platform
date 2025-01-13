@@ -15,7 +15,7 @@ export default function Profile() {
 
   return (
     <main className="py-3 pt-5" style={{ backgroundImage: `url(${require('../../Img/Profile/wallpaper-pattern.webp')})` }}>
-      {decodeToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === 'Teacher' ?
+      {decodeToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] !== 'Student' ?
         <div className='row justify-content-center mx-sm-3 mx-3 mt-4'>
           <ProfileTeacher />
         </div>

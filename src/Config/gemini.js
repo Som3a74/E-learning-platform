@@ -43,7 +43,8 @@ async function runChat(prompt) {
             },
             {
                 role: "model",
-                parts: [{ text: 'Shorten the sentence to less than 100 words'}],
+                // parts: [{ text: 'Shorten the sentence to less than 100 words'}],
+                parts: [{ text: ''}],
             },
         ],
     });

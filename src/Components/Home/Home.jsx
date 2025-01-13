@@ -28,32 +28,18 @@ export default function Home({ t }) {
 
   // animation
   useEffect(() => {
-    const hiddenElement = document.querySelectorAll('.hidden');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show')
-        } else {
-          entry.target.classList.remove('show')
-        }
+    const applyIntersectionObserver = (elements, className) => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          target.classList.toggle(className, isIntersecting);
+        });
       });
-    });
-    hiddenElement.forEach((el) => observer.observe(el))
+      elements.forEach((el) => observer.observe(el));
+    };
 
-
-
-    const hiddenFedeOut = document.querySelectorAll('.hidden-fede-out');
-    const observerFedeOut = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show')
-        } else {
-          entry.target.classList.remove('show')
-        }
-      });
-    });
-    hiddenFedeOut.forEach((el) => observerFedeOut.observe(el))
-  }, [])
+    applyIntersectionObserver(document.querySelectorAll('.hidden'), 'show');
+    applyIntersectionObserver(document.querySelectorAll('.hidden-fede-out'), 'show');
+  }, []);
 
   // section Courses
   const Ourcourses = [
@@ -85,48 +71,23 @@ export default function Home({ t }) {
     { title: t("AI Chat"), imgExperience: experience3, describtion: t('It makes learning more exciting with AI chat'), duration: '1000ms', widthImg: false },
   ]
 
-
-  // setting of slider
-  var settings = {
+  const settings = {
     dots: true,
     slidesToShow: 4,
     slidesToScroll: 2,
     infinite: false,
-    // autoplay: true,
     speed: 1000,
-    autoplaySpeed: 3000,
-    cssEase: "linear",
     responsive: [
-      {
-        breakpoint: 1112,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 830,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 558,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+      { breakpoint: 1112, settings: { slidesToShow: 3, slidesToScroll: 2, dots: true } },
+      { breakpoint: 830, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+      { breakpoint: 558, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+    ],
   };
 
   return <>
 
     <main>
+      
       <section className={style.hadder}>
         <div className='container'>
           <div className='row align-items-center'>
@@ -174,7 +135,7 @@ export default function Home({ t }) {
                       <div className='fw-normal small m-1 mb-2'><i className="fa-solid fa-people-group"></i>{course.People}</div>
                     </div>
                     <div className='text-center'>
-                      <Link to="/Courses" ><button className="btn  bgThirdColor rounded-4 px-3 mt-3 mb-1 text-white fw-semibold">Join Course</button></Link>
+                      <Link to="Courses/3" ><button className="btn  bgThirdColor rounded-4 px-3 mt-3 mb-1 text-white fw-semibold">Join Course</button></Link>
                     </div>
                   </div>
                 </div>

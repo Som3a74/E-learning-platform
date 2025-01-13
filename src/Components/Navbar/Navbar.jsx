@@ -21,7 +21,9 @@ export default function Navbar({ t }) {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getToken());
+    if (userToken) {
+      dispatch(getToken());
+    }
   }, []);
 
   return (
@@ -89,7 +91,7 @@ export default function Navbar({ t }) {
 
 
                     <div className="dropdown mx-2">
-                      <li className="nav-link text-black fw-semibold cursorPointer" data-bs-toggle="dropdown" aria-expanded="false">
+                      <li className="nav-link text-black fw-semibold cursorPointer" data-bs-toggle="dropdown">
                         <i style={{ color: '#000000a6', fontSize: "22px" }} className="fa-solid fa-user"></i>
                       </li>
                       <ul className="dropdown-menu">

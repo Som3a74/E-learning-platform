@@ -12,11 +12,12 @@ export default function CourseDetails() {
     let { SubjectId } = useParams()
     let navigate = useNavigate()
 
+    console.log(process.env.REACT_APP_END_POINT_API)
     const { userToken } = useSelector((state) => state.ApisliceToken);
     const getCourse = async () => {
         setLoading(true);
         try {
-            const { data } = await axios.get(` https://selpapi20240618171141.azurewebsites.net/Content/SELP/V1/Content/${SubjectId}`,
+            const { data } = await axios.get(`${process.env.REACT_APP_END_POINT_API}/Content/SELP/V1/Content/${SubjectId}`,
                 {
                     headers: { Authorization: `Bearer ${userToken}` }
                 }
@@ -33,12 +34,44 @@ export default function CourseDetails() {
     };
     useEffect(() => {
         getCourse();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+
+
+
+    const handleDownload = () => {
+        const pdfUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(DataCourse.pdf)}`;
+
+        fetch(pdfUrl, { mode: 'cors' })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch the file. Status: ${response.status}`);
+                }
+                return response.blob();
+            })
+            .then((blob) => {
+                const downloadUrl = window.URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = downloadUrl;
+                link.download = "Material.pdf";
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                window.URL.revokeObjectURL(downloadUrl);
+            })
+            .catch((error) => {
+                console.error("Error downloading the file:", error.message || error);
+            });
+    };
+
+
+
 
     const { decodeToken } = useSelector((state) => state.ApisliceToken);
 
     if (!decodeToken) {
-      return <LoadingPage />
+        return <LoadingPage />
     }
     return <>
         {!Loading && DataCourse ?
@@ -59,9 +92,82 @@ export default function CourseDetails() {
                     </div>
 
                     <div className='my-4'>
-                        <a className="text-decoration-none text-black" href={DataCourse.pdf} target="_blank" download="document.pdf">
+                        {/* <a className="text-decoration-none text-black" href={DataCourse.pdf} target="_blank" download="document.pdf">
                             <i className="fa-solid fa-book mx-2"></i>pdf
-                        </a>
+                        </a> */}
+
+                        <div className="parent d-flex w-100 justify-content-center " style={{height:'460px'}} dir="RTL">
+                            <iframe title='doc' className="w-50 h-100"
+                                src={DataCourse.pdf}>
+                            </iframe>
+                        </div>
+
+                        {/* <a
+                            href="https://localhost:7196/Contents/Material/6a93ec3027c44853a6d4770ee63f31c5.pdf"
+                            //https://localhost:7196/Contents/Material/6a93ec3027c44853a6d4770ee63f31c5.pdf
+                            download="document.pdf"
+                            className="download-button"
+                        >
+                            Download PDF
+                        </a> */}
+
+                        {/* <a href="https://s251d4.downet.net/download/1736730777/67831719323ee/Abo Nasab.2023.720P.WEB-DL.AKWAM.mp4"
+                            download="document.pdf"
+                        >
+                            تحميل
+                        </a> */}
+
+
+                        <button
+                            onClick={handleDownload}
+                            style={{
+                                padding: "10px 20px",
+                                fontSize: "16px",
+                                backgroundColor: "#007bff",
+                                color: "#fff",
+                                border: "none",
+                                borderRadius: "5px",
+                                cursor: "pointer",
+                            }}
+                        >
+                            Download PDF
+                        </button>
+
+
+                        {/* <div style={{ margin: "20px", textAlign: "center" }}>
+                            <h2>عرض ملف PDF</h2>
+                            <iframe
+                                src={DataCourse.pdf}
+                                title="PDF Viewer"
+                                width="100%"
+                                height="600px"
+                                style={{
+                                    border: "1px solid #ccc",
+                                    borderRadius: "8px",
+                                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                                }}
+                                allow="fullscreen"
+                            ></iframe>
+                            <button
+                                style={{
+                                    marginTop: "20px",
+                                    padding: "10px 20px",
+                                    backgroundColor: "#007BFF",
+                                    color: "#fff",
+                                    border: "none",
+                                    borderRadius: "5px",
+                                    cursor: "pointer",
+                                }}
+                                onClick={() => {
+                                    const link = document.createElement("a");
+                                    link.href = DataCourse.pdf;
+                                    link.download = "Material.pdf";
+                                    link.click();
+                                }}
+                            >
+                                تحميل الملف
+                            </button>
+                        </div> */}
                     </div>
 
                     <div className='my-4'>
@@ -72,14 +178,14 @@ export default function CourseDetails() {
                     </div>
 
 
-                    {decodeToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === 'Teacher' &&
+                    {decodeToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === 'Teacher' || 'admin' ?
                         <div className='my-4'>
                             <button className='btn btn-success'>
                                 <Link className='text-decoration-none text-white' onClick={() => navigate(`/Courses/CourseContent/CourseDetails/CreateQuiz/${SubjectId}`)}>
                                     create Quiz
                                 </Link>
                             </button>
-                        </div>
+                        </div> : null
                     }
 
 

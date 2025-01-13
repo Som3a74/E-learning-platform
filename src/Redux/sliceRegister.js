@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const getRegister = createAsyncThunk('getRegister/getRegister' ,async (values , { rejectWithValue })=>{    
     try{
-        const {data} = await axios.post(`https://selpapi20240618171141.azurewebsites.net/Register` , values )
+        const {data} = await axios.post(`${process.env.REACT_APP_END_POINT_API}/Register` , values )
         console.log('ss');
         return data
     }catch(err){
